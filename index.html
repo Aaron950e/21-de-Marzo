@@ -49,16 +49,14 @@
     </div>
 
     <!-- Música de fondo -->
-    <audio id="background-music" loop>
-        <source src="https://www.dropbox.com/scl/fi/8os2tewz3jmv6ty5adt7g/Vida-Encontr-Ac-stica-4.mp3?rlkey=lc4rbbw8cyurrqhjcv0pz9ih0&raw=1" type="audio/mp3">
-        Tu navegador no soporta audio.
-    </audio>
+    <audio id="background-music" loop></audio>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let audio = document.getElementById('background-music');
-            
-            // Intenta reproducir el audio automáticamente
+        document.addEventListener("DOMContentLoaded", function () {
+            let audio = document.getElementById("background-music");
+            audio.src = "https://www.dropbox.com/scl/fi/8os2tewz3jmv6ty5adt7g/Vida-Encontr-Ac-stica-4.mp3?rlkey=lc4rbbw8cyurrqhjcv0pz9ih0&raw=1";
+            audio.volume = 1.0;
+
             let playPromise = audio.play();
 
             if (playPromise !== undefined) {
@@ -66,7 +64,7 @@
                     console.log("Música reproduciéndose automáticamente.");
                 }).catch(() => {
                     console.log("Reproducción automática bloqueada, esperando interacción.");
-                    document.addEventListener('click', () => {
+                    document.addEventListener("click", () => {
                         audio.play();
                     }, { once: true });
                 });
