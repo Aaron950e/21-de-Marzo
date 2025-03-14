@@ -7,9 +7,10 @@
     <style>
         body {
             text-align: center;
-            background-color: #836FFF; /* Morado suave */
+            background-color: #9370DB; /* Morado suave */
             color: white;
             font-family: Arial, sans-serif;
+            overflow-x: hidden;
         }
         .container {
             margin-top: 20px;
@@ -27,7 +28,7 @@
             background-color: #cc5500;
         }
         .image-gallery img {
-            width: 300px;
+            width: 300px; /* Ajusta el tamaño según prefieras */
             margin: 10px;
             border-radius: 10px;
         }
@@ -36,14 +37,14 @@
             width: 100px;
         }
         .sticker1 { top: 20px; left: 20px; }
-        .sticker2 { bottom: 50px; right: 30px; }
-        .sticker3 { bottom: 20px; left: 30px; }
+        .sticker2 { bottom: 20px; right: 20px; }
+        .sticker3 { top: 50%; right: 10%; transform: translateY(-50%); }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>FELIZ 21 DE MARZO :3 </h1>
-        <p>SIEMPRE SERÁS PROTAGONISTA LINDA 💜</p>
+        <p>SIEMPRE SERÁS PROTAGONISTA LINDA 💚💙</p>
         <a href="https://trinket.io/library/trinkets/0f261b2b8d91" target="_blank">Ver Proyecto</a>
     </div>
 
@@ -56,20 +57,23 @@
     </div>
 
     <!-- Stickers -->
-    <img class="sticker sticker1" src="https://media.tenor.com/uYI4d-YRPtAAAAAM/snoopy-woodstock.gif" alt="Sticker 1">
-    <img class="sticker sticker2" src="https://media.tenor.com/2tBAupuWcMYAAAAm/%E5%A4%A9%E7%AB%BA%E9%BC%A0%E6%A3%AE%E6%A3%AE-%E8%B7%B3%E8%88%9E.webp" alt="Sticker 2">
-    <img class="sticker sticker3" src="https://tenor.com/es/view/snoopy-gif-12175127243201573223.gif" alt="Sticker 3">
+    <img src="https://media.tenor.com/uYI4d-YRPtAAAAAM/snoopy-woodstock.gif" class="sticker sticker1" alt="Sticker 1">
+    <img src="https://media.tenor.com/2tBAupuWcMYAAAAm/%E5%A4%A9%E7%AB%BA%E9%BC%A0%E6%A3%AE%E6%A3%AE-%E8%B7%B3%E8%88%9E.webp" class="sticker sticker2" alt="Sticker 2">
+    <img src="https://media.tenor.com/uYI4d-YRPtAAAAAM/snoopy-woodstock.gif" class="sticker sticker3" alt="Sticker 3">
 
     <!-- Música de fondo -->
-    <audio id="bg-music" autoplay loop>
+    <audio id="background-music" loop>
         <source src="https://www.dropbox.com/scl/fi/8os2tewz3jmv6ty5adt7g/Vida-Encontr-Ac-stica-4.mp3?rlkey=lc4rbbw8cyurrqhjcv0pz9ih0&raw=1" type="audio/mp3">
         Tu navegador no soporta audio.
     </audio>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            let audio = document.getElementById('bg-music');
+            const audio = document.getElementById('background-music');
             audio.play().catch(() => {
-                console.log('El usuario necesita interacción para iniciar el audio.');
+                document.body.addEventListener('click', () => {
+                    audio.play();
+                }, { once: true });
             });
         });
     </script>
