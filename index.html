@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz 21 de Marzo :3</title>
+    <title>Mi Página con Enlace y Música</title>
     <style>
         body {
             text-align: center;
-            background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+            background-color: #6a5acd; /* Morado suave */
             color: white;
             font-family: Arial, sans-serif;
             position: relative;
-            overflow: hidden;
         }
         .container {
             margin-top: 20px;
@@ -24,33 +23,22 @@
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
-            font-weight: bold;
         }
         a:hover {
             background-color: #cc5500;
         }
         .image-gallery img {
-            width: 250px;
+            width: 300px; /* Ajusta el tamaño según prefieras */
             margin: 10px;
             border-radius: 10px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
         }
-        .image-gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(255, 165, 0, 0.7);
-        }
-        /* Stickers flotantes */
         .sticker {
             position: absolute;
-            width: 60px;
-            animation: float 3s infinite alternate ease-in-out;
-            opacity: 0.7;
+            width: 100px;
         }
-        @keyframes float {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-15px); }
-        }
+        .sticker1 { top: 10px; left: 10px; }
+        .sticker2 { top: 50%; right: 20px; transform: translateY(-50%); }
+        .sticker3 { bottom: 10px; left: 50%; transform: translateX(-50%); }
     </style>
 </head>
 <body>
@@ -69,32 +57,14 @@
     </div>
 
     <!-- Stickers -->
-    <img src="https://i.imgur.com/5fV7H6x.png" class="sticker" style="top: 10%; left: 5%;">
-    <img src="https://i.imgur.com/oM4cH9J.png" class="sticker" style="top: 80%; right: 10%;">
-    <img src="https://i.imgur.com/8X0J9yY.png" class="sticker" style="top: 50%; left: 50%;">
+    <img src="https://tenor.com/es/view/snoopy-gif-12175127243201573223" class="sticker sticker1" alt="Sticker 1">
+    <img src="https://media.tenor.com/2tBAupuWcMYAAAAm/%E5%A4%A9%E7%AB%BA%E9%BC%A0%E6%A3%AE%E6%A3%AE-%E8%B7%B3%E8%88%9E.webp" class="sticker sticker2" alt="Sticker 2">
+    <img src="https://media.tenor.com/uYI4d-YRPtAAAAAM/snoopy-woodstock.gif" class="sticker sticker3" alt="Sticker 3">
 
     <!-- Música de fondo -->
-    <audio id="background-music" loop></audio>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let audio = document.getElementById("background-music");
-            audio.src = "https://www.dropbox.com/scl/fi/8os2tewz3jmv6ty5adt7g/Vida-Encontr-Ac-stica-4.mp3?rlkey=lc4rbbw8cyurrqhjcv0pz9ih0&raw=1";
-            audio.volume = 1.0;
-
-            let playPromise = audio.play();
-
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    console.log("Música reproduciéndose automáticamente.");
-                }).catch(() => {
-                    console.log("Reproducción automática bloqueada, esperando interacción.");
-                    document.addEventListener("click", () => {
-                        audio.play();
-                    }, { once: true });
-                });
-            }
-        });
-    </script>
+    <audio autoplay loop hidden>
+        <source src="https://www.dropbox.com/scl/fi/8os2tewz3jmv6ty5adt7g/Vida-Encontr-Ac-stica-4.mp3?rlkey=lc4rbbw8cyurrqhjcv0pz9ih0&raw=1" type="audio/mp3">
+        Tu navegador no soporta audio.
+    </audio>
 </body> 
 </html>
